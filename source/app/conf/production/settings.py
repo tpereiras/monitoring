@@ -25,9 +25,11 @@ INSTALLED_APPS = [
     # Vendor apps
     'bootstrap4',
 
+
     # Application apps
     'main',
     'accounts',
+    'customer',
 ]
 
 MIDDLEWARE = [
@@ -65,13 +67,15 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-DEFAULT_FROM_EMAIL = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'travispereiras@gmail.com'
+DEFAULT_FROM_EMAIL = 'travispereiras@gmail.com'
+EMAIL_HOST_PASSWORD = 'cfdb nllu wpwy mhok'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+
 
 DATABASES = {
     'default': {

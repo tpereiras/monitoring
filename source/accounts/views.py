@@ -25,9 +25,9 @@ from .utils import (
 from .forms import (
     SignInViaUsernameForm, SignInViaEmailForm, SignInViaEmailOrUsernameForm, SignUpForm,
     RestorePasswordForm, RestorePasswordViaEmailOrUsernameForm, RemindUsernameForm,
-    ResendActivationCodeForm, ResendActivationCodeViaEmailForm, ChangeProfileForm, ChangeEmailForm,
+    ResendActivationCodeForm, ResendActivationCodeViaEmailForm, ChangeProfileForm, ChangeEmailForm, ChangeCompanyForm,
 )
-from .models import Activation
+from .models import Activation, Company
 
 
 class GuestOnlyView(View):
@@ -260,6 +260,44 @@ class ChangeEmailView(LoginRequiredMixin, FormView):
             messages.success(self.request, _('Email successfully changed.'))
 
         return redirect('accounts:change_email')
+
+class ChangeCompanyInfo(LoginRequiredMixin, FormView):
+    template_name = 'accounts/profile/change_company.html'
+    form_class = ChangeCompanyForm
+
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def get_initial(self):
+        initial = super().get_initial()
+        user = self.request.user.id
+        company = get_object_or_404(Company, id=user)
+
+
+        initial['company_name'] = company.company_name
+        initial['address'] = company.address
+        initial['city'] = company.city
+        initial['state'] = company.state
+        initial['zipcode'] = company.zipcode
+        return initial
+
+    def form_valid(self, form):
+        user = self.request.user.id
+        company = get_object_or_404(Company, id=user)
+        company.company_name = form.cleaned_data['company_name']
+        company.address = form.cleaned_data['address']
+        company.city = form.cleaned_data['city']
+        company.state = form.cleaned_data['state']
+        company.zipcode = form.cleaned_data['zipcode']
+        company.save()
+
+        messages.success(self.request, _('Profile data has been successfully updated.'))
+
+        return redirect('accounts:change_company')
+
 
 
 class ChangeEmailActivateView(View):

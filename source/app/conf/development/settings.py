@@ -27,9 +27,11 @@ INSTALLED_APPS = [
     # Vendor apps
     'bootstrap4',
 
+
     # Application apps
     'main',
     'accounts',
+    'customer',
 ]
 
 MIDDLEWARE = [
@@ -65,10 +67,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = os.path.join(CONTENT_DIR, 'tmp/emails')
-EMAIL_HOST_USER = 'test@example.com'
-DEFAULT_FROM_EMAIL = 'test@example.com'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'travispereiras@gmail.com'
+DEFAULT_FROM_EMAIL = 'travispereiras@gmail.com'
+EMAIL_HOST_PASSWORD = 'cfdb nllu wpwy mhok'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# EMAIL_FILE_PATH = os.path.join(CONTENT_DIR, 'tmp/emails')
+# EMAIL_HOST_USER = 'travispereiras@gmail.com'
+# DEFAULT_FROM_EMAIL = 'travispereiras@gmail.com'
+
+
 
 DATABASES = {
     'default': {

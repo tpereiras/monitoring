@@ -236,6 +236,42 @@ class ChangeEmailForm(forms.Form):
 
         return email
 
+class ChangeCompanyForm(forms.Form):
+    company_name = forms.CharField(label=_('Company name'), max_length=30, required=False)
+    address = forms.CharField(label=_('Address'), max_length=30, required=False)
+    city = forms.CharField(label=_('City'), max_length=30, required=False)
+    state = forms.CharField(label=_('State'), max_length=30, required=False)
+    zipcode = forms.CharField(label=_('Zip code'), max_length=30, required=False)
+
+    def __init__(self, user, *args, **kwargs):
+        self.user = user
+        super().__init__(*args, **kwargs)
+
+    def clean_company_name(self):
+        company_name = self.cleaned_data['company_name']
+
+        return company_name
+
+    def clean_address(self):
+        address = self.cleaned_data['address']
+
+        return address
+
+    def clean_city(self):
+        city = self.cleaned_data['city']
+
+        return city
+
+    def clean_state(self):
+        state = self.cleaned_data['state']
+
+        return state
+
+    def clean_zipcode(self):
+        zipcode = self.cleaned_data['zipcode']
+
+        return zipcode
+
 
 class RemindUsernameForm(UserCacheMixin, forms.Form):
     email = forms.EmailField(label=_('Email'))

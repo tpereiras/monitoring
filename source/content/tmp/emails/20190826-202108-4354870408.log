@@ -1,0 +1,53 @@
+Content-Type: multipart/alternative;
+ boundary="===============5232781360785931849=="
+MIME-Version: 1.0
+Subject: Profile activation
+From: travispereiras@gmail.com
+To: tpereiras@usahazmat.com
+Date: Mon, 26 Aug 2019 20:21:08 -0000
+Message-ID: <156685086856.5058.2176978811507154835@MacBook-Pro.local>
+
+--===============5232781360785931849==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+
+
+To activate your profile, please follow this link:
+
+http://localhost:8000/accounts/activate/LYfmsTKxzWQEqVArOt1A/
+
+--===============5232781360785931849==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Profile activation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+<p>
+    To activate your profile, please follow this link:
+</p>
+
+<p>
+    <a href="http://localhost:8000/accounts/activate/LYfmsTKxzWQEqVArOt1A/">http://localhost:8000/accounts/activate/LYfmsTKxzWQEqVArOt1A/</a>
+</p>
+
+</body>
+
+</html>
+
+--===============5232781360785931849==--
+
+-------------------------------------------------------------------------------
